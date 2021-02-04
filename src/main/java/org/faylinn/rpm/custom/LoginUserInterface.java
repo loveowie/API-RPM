@@ -7,5 +7,5 @@ package org.faylinn.rpm.custom;
  */
 public interface LoginUserInterface {
 
-    public void get();
+    String getUserId();
 }

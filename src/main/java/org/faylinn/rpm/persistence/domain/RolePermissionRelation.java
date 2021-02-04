@@ -1,35 +1,36 @@
 package org.faylinn.rpm.persistence.domain;
 
+import javax.persistence.*;
+
 /**
  * @author Faylinn
  * @since 2021/2/2 22:45
  */
+@Entity
+@Table(name = "role_permission_relation")
 public class RolePermissionRelation {
-    private Long id;
-    private Long roleId;
-    private Long PermissionId;
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "permission_id")
+    private Permission Permission;
 
-    public Long getId() {
-        return id;
+    public Role getRole() {
+        return role;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
-    public Long getRoleId() {
-        return roleId;
+    public org.faylinn.rpm.persistence.domain.Permission getPermission() {
+        return Permission;
     }
 
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
-    }
-
-    public Long getPermissionId() {
-        return PermissionId;
-    }
-
-    public void setPermissionId(Long permissionId) {
-        PermissionId = permissionId;
+    public void setPermission(org.faylinn.rpm.persistence.domain.Permission permission) {
+        Permission = permission;
     }
 }
