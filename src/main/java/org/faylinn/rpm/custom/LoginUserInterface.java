@@ -8,4 +8,6 @@ package org.faylinn.rpm.custom;
 public interface LoginUserInterface {
 
     String getUserId();
+
+
 }

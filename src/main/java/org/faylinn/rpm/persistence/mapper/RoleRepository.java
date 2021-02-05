@@ -12,5 +12,7 @@ import java.util.List;
  */
 public interface RoleRepository extends JpaRepository<Role, Long> {
 
-    List<Role> findAllByDeletedIsTrue();
+    List<Role> findAllByDeletedIsFalse();
+
+    List<Role> findAllByNameIsAndDeletedIsFalse(String name);
 }

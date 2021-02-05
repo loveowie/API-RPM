@@ -14,7 +14,6 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private Integer weight;
     private String alias;
     private Boolean deleted;
 
@@ -50,14 +49,6 @@ public class Role {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Integer weight) {
-        this.weight = weight;
     }
 
     public String getAlias() {

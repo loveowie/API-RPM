@@ -27,7 +27,7 @@ public class CacheLoader implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() {
-        List<Role> roles = roleRepository.findAllByDeletedIsTrue();
+        List<Role> roles = roleRepository.findAllByDeletedIsFlase();
         for (Role role : roles) {
             Set<RolePermissionRelation> relations = role.getRelations();
             RoleCache.put(role, relations.stream().map(RolePermissionRelation::getPermission).collect(Collectors.toList()));
