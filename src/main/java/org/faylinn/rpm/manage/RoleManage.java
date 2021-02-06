@@ -3,6 +3,7 @@ package org.faylinn.rpm.manage;
 import org.faylinn.rpm.core.config.exception.DataNotExistsException;
 import org.faylinn.rpm.persistence.domain.Role;
 import org.faylinn.rpm.persistence.mapper.RoleRepository;
+import org.faylinn.rpm.web.rest.dto.RoleDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -19,11 +20,14 @@ import java.util.function.Supplier;
 @Service
 public class RoleManage {
 
-    @Autowired
-    private RoleRepository roleRepository;
+    private final RoleRepository roleRepository;
 
-    public void create(Role role) {
-        roleRepository.save(role);
+    public RoleManage(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+    }
+
+    public void create(RoleDTO role) {
+        roleRepository.save(role.convert());
     }
 
     public List<Role> find(String name) {

@@ -15,10 +15,19 @@ public class Role {
     private Long id;
     private String name;
     private String alias;
+    private String description;
     private Boolean deleted;
 
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<RolePermissionRelation> relations;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Set<RolePermissionRelation> getRelations() {
         return relations;

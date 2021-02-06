@@ -15,10 +15,19 @@ public class Permission {
     private Long id;
     private String name;
     private String action;
+    private String description;
     private Boolean deleted;
 
     @OneToMany(mappedBy = "permission")
     private Set<RolePermissionRelation> relations;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Set<RolePermissionRelation> getRelations() {
         return relations;
